@@ -7,3 +7,5 @@ if n < m:
     print(m - n)
 if m < n:
     print(n - m)
+if n == m:
+    print(0)
