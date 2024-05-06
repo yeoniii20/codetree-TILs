@@ -1,0 +1,8 @@
+a = input()
+arr = a.split()
+c = int(arr[0])
+d = int(arr[1])
+print(c + d)
+print(c - d)
+print(c // d)
+print(c % d)
