@@ -6,4 +6,4 @@ c = int(arr[1])
 if b > c:
     print(b * c)
 else:
-    print(c % b)
+    print(c // b)
