@@ -18,7 +18,7 @@ if a == "Y" and b >= 37:
         print("E")
     else:
         print("N")
-elif a == "N" and b < 37:
+elif a == "N" or b < 37:
     if (c == "Y" and d >= 37) and (e == "Y" and f >= 37):
         print("E")
     else:
