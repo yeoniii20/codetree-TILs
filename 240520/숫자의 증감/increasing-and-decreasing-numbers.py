@@ -8,6 +8,6 @@ if c == "A":
         print(i, end=' ')
         i += 1
 elif c == "D":
-    for i in range(n + 1, 1):
+    for i in range(n, 0, -1):
         print(i, end=' ')
-        i -= 1
+        # i -= 1
