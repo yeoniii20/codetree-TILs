@@ -15,6 +15,7 @@ rl.on('line', (input) => {
     if (numbers.length === 10) {    // 10개의 숫자를 입력받으면
         let count3 = count3Numbers(numbers);
         let count5 = count5Numbers(numbers);
+        let count35 = count35Numbers(numbers);
         console.log(count3, count5);
         rl.close();
     }
@@ -23,7 +24,7 @@ rl.on('line', (input) => {
 function count5Numbers(numbers) {
     let count = 0;
     for (let i = 0; i < numbers.length; i++) {
-        if (numbers[i] % 5 !== 0) {  // 5의 배수
+        if (numbers[i] % 5 === 0) {  // 5의 배수
             count++;
         }
     }
@@ -33,7 +34,17 @@ function count5Numbers(numbers) {
 function count3Numbers(numbers) {
     let count = 0;
     for (let i = 0; i < numbers.length; i++) {
-        if (numbers[i] % 3 !== 0) {  // 3의 배수
+        if (numbers[i] % 3 === 0) {  // 3의 배수
+            count++;
+        }
+    }
+    return count;
+}
+
+function count35Numbers(numbers) {
+    let count = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] % 3 !== 0 && numbers[i] % 5 !== 0 ) {  // 3의 배수 5의 배수
             count++;
         }
     }
