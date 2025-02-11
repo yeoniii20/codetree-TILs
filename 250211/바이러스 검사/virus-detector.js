@@ -1,39 +1,25 @@
 const fs = require('fs');
 
 function minExaminers(n, customers, teamLeadMax, teamMemberMax) {
-    let left = 1, right = 1_000_000_000, result = right;
-    
-    while (left <= right) {
-        let mid = Math.floor((left + right) / 2);
-        let requiredExaminers = 0;
-        
-        for (let i = 0; i < n; i++) {
-            let remaining = customers[i];
-            
-            // 1. 팀장이 검사할 수 있는 고객 우선 검사
-            if (remaining > 0) {
-                remaining -= teamLeadMax;
-                requiredExaminers++;
-            }
-            
-            // 2. 남은 고객을 팀원이 검사
-            if (remaining > 0) {
-                requiredExaminers += Math.ceil(remaining / teamMemberMax);
-            }
-        }
-        
-        if (requiredExaminers <= mid) {
-            result = mid;
-            right = mid - 1;
-        } else {
-            left = mid + 1;
+    let totalExaminers = 0;
+
+    for (let i = 0; i < n; i++) {
+        let remaining = customers[i];
+
+        // 1. 팀장이 최소 1명 필요하고, 팀장이 최대 검사할 수 있는 만큼 처리
+        remaining -= teamLeadMax;
+        totalExaminers++;
+
+        // 2. 남은 고객을 팀원이 검사
+        if (remaining > 0) {
+            totalExaminers += Math.ceil(remaining / teamMemberMax);
         }
     }
-    
-    return result;
+
+    return totalExaminers;
 }
 
-
+// 입력 받기
 const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
 const n = parseInt(input[0]);
 const customers = input[1].split(' ').map(Number);
