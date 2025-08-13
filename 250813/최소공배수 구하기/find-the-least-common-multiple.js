@@ -10,8 +10,10 @@ let arr = []
 
 function minNumber(n, m) {
     for(let i = 1; i <=n; i++){
-        if (n % i === m % i) {
+        if (n % i === 0 && m % i === 0) {
         arr.push(i)
+
+        // console.log(i)
         }
     }
     minNum = Math.max(...arr)
@@ -19,6 +21,9 @@ function minNumber(n, m) {
     const min1 = n / minNum
     const min2 = m / minNum
 
+    // console.log(min1)
+    // console.log(min2)
+    // console.log(minNum)
     console.log(min1 * min2 * minNum)
 
 }
